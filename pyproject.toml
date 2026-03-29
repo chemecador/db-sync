@@ -1,0 +1,12 @@
+[project]
+name = "db-sync"
+version = "0.1.0"
+description = "SQL Server to SQLite database synchronization tool"
+requires-python = ">=3.10"
+dependencies = [
+    "pymssql>=2.3",
+    "python-dotenv>=1.0",
+]
+
+[project.scripts]
+db-sync = "db_sync.__main__:main"
