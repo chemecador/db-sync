@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import logging
 import os
-from pathlib import Path
 from typing import Any, NamedTuple
 
 import pymssql
 
 from db_sync.config import SyncConfig
+from db_sync.runtime_paths import bundled_resource_path
 
 # Allow connections to SQL Servers with older TLS versions
-_OPENSSL_CONF = Path(__file__).resolve().parent.parent.parent / "openssl.cnf"
+_OPENSSL_CONF = bundled_resource_path("openssl.cnf")
 if _OPENSSL_CONF.exists() and "OPENSSL_CONF" not in os.environ:
     os.environ["OPENSSL_CONF"] = str(_OPENSSL_CONF)
 
